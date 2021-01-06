@@ -1,7 +1,31 @@
-// Copyright 2020 Your Name <your_email>
+// Copyright 2020 Avackimyanc Levon levon.avakimyanc.01@mail.ru
 
 #include <gtest/gtest.h>
 
-TEST(Example, EmptyTest) {
-    EXPECT_TRUE(true);
+#include "BoostSort.hpp"
+
+TEST(Example, EmptyTest) { EXPECT_TRUE(true); }
+TEST(BoostSort, WrongPath) { EXPECT_ANY_THROW(BoostSort("/Wrong/path")); }
+TEST(BoostSort, EmptyPath) {
+  BoostSort B("");
+  EXPECT_EQ(B.GetPath(0), "..");
+}
+TEST(BoostSort, CorrectPrintAccount) {
+  std::string AccPath{"/Users/levon-avakimanc/Labs/Lab_04_Boost/TestFiles"};
+  BoostSort B(AccPath);
+  EXPECT_EQ(
+      B.PrintAcc(B.GetPath(1), 2).str(),
+      "broker: bcs      account: 00122223 files: 2   lastdate: 2018.09.02");
+}
+TEST(BoostSort, CorrectOverloadPrint) {
+  std::string path{"/Users/levon-avakimanc/Labs/Lab_04_Boost/TestFiles"};
+  std::stringstream ss;
+  BoostSort B(path);
+  ss << B;
+  EXPECT_EQ(
+      ss.str(),
+      (R"(broker: bcs      account: 00122223 files: 2   lastdate: 2018.09.02
+broker: otkr     account: 03934520 files: 3   lastdate: 2018.09.04
+broker: otkr     account: 03934535 files: 2   lastdate: 2018.09.19
+)"));
 }
