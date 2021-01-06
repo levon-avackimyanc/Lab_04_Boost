@@ -5,12 +5,12 @@
 #include "BoostSort.hpp"
 
 std::string currentDir(const std::string& name) {
-  //std::string s = "/Users/levon-avakimanc/Labs/Lab_04_Boost/tests/TestFiles";
+  // std::string s = "/Users/levon-avakimanc/Labs/Lab_04_Boost/tests/TestFiles";
   std::string s(__FILE__);
   for (size_t i = 0; i < 8; ++i) {
     s.pop_back();
   }
-  return s+name;
+  return s + name;
 }
 
 TEST(Example, EmptyTest) { EXPECT_TRUE(true); }
