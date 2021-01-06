@@ -75,5 +75,3 @@ std::stringstream BoostSort::PrintAcc(const bfs::path& _path,
 const bfs::path& BoostSort::GetPath(const size_t& n) const {
   return ArrPath.at(n);
 }
-
-BoostSort::~BoostSort() = default;

@@ -17,7 +17,7 @@ namespace bfs = boost::filesystem;
 class BoostSort {
  public:
   explicit BoostSort(const std::string& path);
-  ~BoostSort();
+  ~BoostSort() = default;
 
   const bfs::path& GetPath(const size_t& n) const;
   std::stringstream PrintAcc(const bfs::path& elem, const size_t& n) const;

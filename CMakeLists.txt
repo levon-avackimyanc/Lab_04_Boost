@@ -33,8 +33,7 @@ hunter_add_package(GTest)
 find_package(GTest CONFIG REQUIRED)
 
 add_library(${PROJECT_NAME} STATIC
-        #${CMAKE_CURRENT_SOURCE_DIR}/
-        sources/BoostSort.cpp include/BoostSort.hpp demo/main.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/ sources/BoostSort.cpp
         )
 
 target_link_libraries(Boost PUBLIC Boost::system Boost::filesystem)
@@ -54,7 +53,6 @@ if(BUILD_TESTS)
   add_executable(tests
           # TODO: enum your files and delete this comment
           ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
-          sources/BoostSort.cpp include/BoostSort.hpp
           )
   target_link_libraries(tests ${PROJECT_NAME} GTest::gtest_main)
   enable_testing()
