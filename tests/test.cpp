@@ -19,7 +19,7 @@ TEST(BoostSort, EmptyPath) {
   BoostSort B("");
   EXPECT_EQ(B.GetPath(0), "..");
 }
-TEST(BoostSort, CorrectPrintAccount) {
+/*TEST(BoostSort, CorrectPrintAccount) {
   std::string AccPath{currentDir("TestFiles")};
   BoostSort B(AccPath);
   std::stringstream ss;
@@ -27,7 +27,7 @@ TEST(BoostSort, CorrectPrintAccount) {
   EXPECT_EQ(
       ss.str(),
       "broker: bcs      account: 00122223 files: 2   lastdate: 2018.09.02");
-}
+}*/
 TEST(BoostSort, CorrectOverloadPrint) {
   std::string path{currentDir("TestFiles")};
   std::stringstream ss;
