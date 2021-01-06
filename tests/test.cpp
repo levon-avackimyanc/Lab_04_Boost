@@ -4,6 +4,15 @@
 
 #include "BoostSort.hpp"
 
+std::string currentDir(const std::string& name) {
+  //std::string s = "/Users/levon-avakimanc/Labs/Lab_04_Boost/tests/TestFiles";
+  std::string s(__FILE__);
+  for (size_t i = 0; i < 8; ++i) {
+    s.pop_back();
+  }
+  return s+name;
+}
+
 TEST(Example, EmptyTest) { EXPECT_TRUE(true); }
 TEST(BoostSort, WrongPath) { EXPECT_ANY_THROW(BoostSort("/Wrong/path")); }
 TEST(BoostSort, EmptyPath) {
@@ -11,14 +20,16 @@ TEST(BoostSort, EmptyPath) {
   EXPECT_EQ(B.GetPath(0), "..");
 }
 TEST(BoostSort, CorrectPrintAccount) {
-  std::string AccPath{"/Users/levon-avakimanc/Labs/Lab_04_Boost/TestFiles"};
+  // std::string AccPath{"/Users/levon-avakimanc/Labs/Lab_04_Boost/TestFiles"};
+  std::string AccPath{currentDir("TestFiles")};
   BoostSort B(AccPath);
   EXPECT_EQ(
       B.PrintAcc(B.GetPath(1), 2).str(),
       "broker: bcs      account: 00122223 files: 2   lastdate: 2018.09.02");
 }
 TEST(BoostSort, CorrectOverloadPrint) {
-  std::string path{"/Users/levon-avakimanc/Labs/Lab_04_Boost/TestFiles"};
+  // std::string path{"/Users/levon-avakimanc/Labs/Lab_04_Boost/TestFiles"};
+  std::string path{currentDir("TestFiles")};
   std::stringstream ss;
   BoostSort B(path);
   ss << B;
