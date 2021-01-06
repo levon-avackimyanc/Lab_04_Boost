@@ -20,7 +20,7 @@ TEST(BoostSort, EmptyPath) {
   EXPECT_EQ(B.GetPath(0), "..");
 }
 TEST(BoostSort, CorrectPrintAccount) {
-  std::string AccPath{currentDir("TestFiles")};
+  std::string AccPath{"/Users/levon-avakimanc/Labs/Lab_04_Boost/tests/TestFiles"};
   BoostSort B(AccPath);
   std::stringstream ss;
   ss = B.PrintAcc(B.GetPath(1), 2);
